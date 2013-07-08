@@ -34,11 +34,11 @@ module VAST
     
     # URI to open as destination page when user clicks on creative
     def click_through_url
-      URI.parse source_node.at('NonLinearClickThrough').content.strip
+      URI.parse URI.escape(source_node.at('NonLinearClickThrough').content.strip)
     end
 
     def click_tracking_url
-      URI.parse source_node.at('NonLinearClickTracking').content.strip
+      URI.parse URI.escape(source_node.at('NonLinearClickTracking').content.strip)
     end
     
     # Whether it is acceptable to scale the mediafile.
@@ -80,9 +80,9 @@ module VAST
     def resource_url
       case resource_type
       when :static
-        URI.parse source_node.at('StaticResource').content.strip
+        URI.parse URI.escape(source_node.at('StaticResource').content.strip)
       when :iframe
-        URI.parse source_node.at('IFrameResource').content.strip
+        URI.parse URI.escape(source_node.at('IFrameResource').content.strip)
       end
     end
     

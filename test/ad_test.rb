@@ -46,7 +46,7 @@ class AdTest < Test::Unit::TestCase
     
     assert_equal "601364", ad.id
     assert_equal "Acudeo Compatible", ad.ad_system
-    assert_equal URI.parse('http://myErrorURL/error'), ad.error_url
+    assert_equal URI.parse(URI.escape('http://myErrorURL/error')), ad.error_url
   end
   
   def test_ad_should_know_linear_creatives
